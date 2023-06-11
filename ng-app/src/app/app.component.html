@@ -1,0 +1,53 @@
+<mat-drawer-container class="full-screen">
+  <mat-drawer #drawer mode="over" class="full-screen">
+    <mat-toolbar>
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <section class="main">
+      <mat-action-list role="list">
+        <a mat-list-item [routerLink]="'/'" class="text-center" (click)="drawer.toggle()">
+          <div style="flex: 1;">Home</div>
+        </a>
+        <!-- <a matListItemTitle routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a> -->
+      </mat-action-list>
+    </section>
+  </mat-drawer>
+  <mat-drawer #signinDrawer class="full-screen">
+    <mat-toolbar>
+      <span>SignIn Form</span>
+      <div style="flex: 1;"></div>
+      <button mat-icon-button (click)="signinDrawer.toggle()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <section class="main">
+      <auth-signin-form></auth-signin-form>
+    </section>
+  </mat-drawer>
+
+  <h1></h1>
+  <mat-drawer-content>
+    <mat-toolbar>
+      <button mat-icon-button arial-label="" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Playground</span>
+      <span style="flex: 1;"></span>
+      <button mat-icon-button arial-label="" (click)="signinDrawer.toggle()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <!-- <a routerLink="/signin" routerLinkActive="active" ariaCurrentWhenActive="page" mat-icon-button class=""
+        aria-label="login-btn">
+        <mat-icon>login</mat-icon>
+      </a> -->
+      <!-- <button mat-icon-button class="" aria-label="">
+        <mat-icon>share</mat-icon>
+      </button> -->
+    </mat-toolbar>
+    <section class="main">
+      <router-outlet></router-outlet>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>
