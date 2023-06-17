@@ -4,6 +4,10 @@ import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DogsModule } from './dogs/dogs.module';
+import { Dog } from './dogs/entities/dog.entity';
+
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -15,8 +19,8 @@ import { DogsModule } from './dogs/dogs.module';
       username: 'root',
       password: 'toor',
       database: 'my_first_db',
-      entities: [],
-      // synchronize: true,
+      entities: [Dog],
+      synchronize: true,
     }),
     DogsModule,
   ],
